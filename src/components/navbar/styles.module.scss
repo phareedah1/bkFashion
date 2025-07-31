@@ -1,0 +1,97 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* default spacing */
+  padding: 1rem 3rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-family: Arial, sans-serif;
+
+  /* ✅ Use a grid-like layout with 3 equal sections */
+  > * {
+    flex: 1; /* Each section takes equal width */
+  }
+}
+
+.logo {
+  flex: 1;
+}
+
+.navLinks {
+  flex: 1; 
+  display: flex;
+  justify-content: center; /* ✅ Center the links */
+  list-style: none;
+  gap: 2rem;
+
+  li a {
+    text-decoration: none;
+    color: #555;
+
+    &:hover {
+      color: orange;
+    }
+  }
+}
+
+.icons {
+  flex: 1; 
+  display: flex;
+  justify-content: flex-end; /* ✅ Right align icons */
+  align-items: center;
+  gap: 1.5rem;
+
+  .icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+
+    &:hover {
+      color: orange;
+    }
+  }
+}
+
+.cart {
+  position: relative;
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 5px;
+    border-radius: 50%;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 0.4rem;
+  width : 220px;
+  height: 25px;
+}
+
+.searchInput {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.3s;
+  border: none;
+
+  &:focus {
+    border-color: orange;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 8px;
+  font-size: 0.9rem;
+  pointer-events: none; /* so icon doesn't block typing */
+}

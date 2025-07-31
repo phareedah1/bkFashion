@@ -1,0 +1,76 @@
+.sidebar {
+  width: 400px;
+  border-right: 1px solid #eee;
+  padding: 1rem;
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .filterSection {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+    }
+
+
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color:grey;
+      display: flex;                
+      justify-content: space-between; 
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+
+    .optionsScrollable {
+      max-height: 120px;   
+      overflow-y: auto;   
+      padding-right: 5px;  
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Optional: make the scrollbar look nice */
+    .optionsScrollable::-webkit-scrollbar {
+      width: 5px;
+    }
+    .optionsScrollable::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+    .optionsScrollable::-webkit-scrollbar-thumb:hover {
+      background: orange;
+    }
+
+
+    .priceInputs {
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        width: 25%;
+        height: 25px;
+        padding: 0.3rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

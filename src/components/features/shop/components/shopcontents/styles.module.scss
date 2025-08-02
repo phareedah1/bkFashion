@@ -46,3 +46,16 @@
     }
   }
 }
+
+
+.container{
+  display: flex;
+
+}
+
+.sorting_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: auto;
+}

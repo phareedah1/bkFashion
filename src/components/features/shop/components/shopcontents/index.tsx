@@ -6,6 +6,7 @@ import list from '../../../../../../public/assets/images/shop/list.svg'
 import twocolumns from '../../../../../../public/assets/images/shop/2columns.svg'
 import threecolumns from '../../../../../../public/assets/images/shop/3columns.svg'
 import Image from "next/image";
+import ProductGrid from "./productgrid/productgrid";
 
 export default function ShopList() {
   const [sortOption, setSortOption] = useState('featured');
@@ -14,28 +15,36 @@ export default function ShopList() {
     setSortOption(e.target.value);
   };
     return(
-        <div style = {{display:'flex'}}>
+        <div className={styles.container}>
             <Sidebar/> 
-    <div className={styles.sortBar}>
-      <span className={styles.label}>Sort by:</span>
-      
-      <select value={sortOption} onChange={handleChange} className={styles.dropdown}>
-        <option value="featured">Featured</option>
-        <option value="best-selling">Best selling</option>
-        <option value="latest">Latest</option>
-        <option value="az">Alphabetically, A-Z</option>
-        <option value="za">Alphabetically, Z-A</option>
-        <option value="low-high">Price, Low to High</option>
-        <option value="high-low">Price, High to Low</option>
-        <option value="relevance">Relevance</option>
-      </select>
+            <div className={styles.sorting_container}>
+              <div className={styles.sortBar}>
+                <span className={styles.label}>Sort by:</span>
+                
+                <select value={sortOption} onChange={handleChange} className={styles.dropdown}>
+                  <option value="featured">Featured</option>
+                  <option value="best-selling">Best selling</option>
+                  <option value="latest">Latest</option>
+                  <option value="az">Alphabetically, A-Z</option>
+                  <option value="za">Alphabetically, Z-A</option>
+                  <option value="low-high">Price, Low to High</option>
+                  <option value="high-low">Price, High to Low</option>
+                  <option value="relevance">Relevance</option>
+                </select>
 
-      <div className={styles.viewToggle}>
-        <Image className={styles.listView} src={list} alt='list' height={25} width={25}/>
-        <Image className={styles.listView} src={twocolumns} alt='list' height={25} width={25}/>
-        <Image className={styles.listView} src={threecolumns} alt='list' height={25} width={25}/>
-      </div>
-    </div>
+                <div className={styles.viewToggle}>
+                  <Image className={styles.listView} src={list} alt='list' height={25} width={25}/>
+                  <Image className={styles.listView} src={twocolumns} alt='list' height={25} width={25}/>
+                  <Image className={styles.listView} src={threecolumns} alt='list' height={25} width={25}/>
+                </div>
+
+              </div>
+
+                <div>
+                  <ProductGrid/>
+                </div>
+            </div>
+
         </div>
     );
 }

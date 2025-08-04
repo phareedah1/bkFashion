@@ -1,39 +1,71 @@
 'use client';
-
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './styles.module.scss'
 import logo from '../../../public/assets/images/navbar/sbk-logo.svg'
 import heartlogo from '../../../public/assets/images/navbar/heartlogo.svg'
 import cartlogo from '../../../public/assets/images/navbar/cartlogo.svg'
+import menuIcon from '../../../public/assets/images/navbar/hamburger.svg'
+import arrowDown from '../../../public/assets/images/navbar/arrow up.svg'
 import searchlogo from '../../../public/assets/images/navbar/searchlogo.svg'
+
 import Image from 'next/image';
 
+const menuItems = [
+  { title: "What's new", submenu: ["For Men", "For Women"] },
+  { title: "Men", submenu: ["All Categories", "Perfumes", "Bags", "Shoes", "Shades", "Accessories"] },
+  { title: "Women", submenu: ["All Categories", "Perfumes", "Bags", "Shoes", "Heels & Slides", "Sneakers"] },
+  { title: "Shop", link: "/shop" },
+  { title: "Others", submenu: ["About Us", "Terms and Conditions", "FAQ"] },
+];
+
 export default function Navbar() {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const toggleMenu = (menu: string) => {
+    setActiveMenu(activeMenu === menu ? null : menu);
+  };
+
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.logo}>
-        <Link href="/">        
-        <Image
-            src={logo}
-            height={100}
-            width={260}
-            alt='logo'
-        />
-          {/* <span className={styles.sLogo}>S</span> BK FASHION */}
-        </Link>
+    <header className={styles.navbar}>
+      {/* Left: Hamburger + Logo */}
+      <div className={styles.left}>
+        <button className={styles.hamburger} onClick={() => setMobileOpen(!mobileOpen)}>
+          <Image src={menuIcon} alt="menu" />
+        </button>
+        <Image src={logo} alt="logo" className={styles.logo} />
       </div>
 
-      {/* Center: Menu Links */}
-      <ul className={styles.navLinks}>
-        <li><Link href="/">Whats new</Link></li>
-        <li><Link href="/men">Men</Link></li>
-        <li><Link href="/women">Women</Link></li>
-        <li><Link href="/shop">Shop</Link></li>
-        <li><Link href="/others">Others</Link></li>
-      </ul>
+      {/* Desktop Menu */}
+      <nav className={`${styles.menu} ${mobileOpen ? styles.open : ''}`}>
+        <ul>
+          {menuItems.map((item, i) => (
+            <li key={i}>
+              {item.submenu ? (
+                <button onClick={() => toggleMenu(item.title)}>
+                  {item.title}
+                  <Image src={arrowDown} alt="arrow" className={styles.arrow} />
+                </button>
+              ) : (
+                <a href={item.link}>{item.title}</a>
+              )}
 
-        <div className={styles.icons}>
-            <div className={styles.searchWrapper}>
+              {item.submenu && activeMenu === item.title && (
+                <ul className={styles.dropdown}>
+                  {item.submenu.map((sub, idx) => (
+                    <li key={idx}>{sub}</li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Right: Search, Heart, Cart */}
+      <div className={styles.actions}>
+        <div className={styles.searchbar}>
                 <input 
                     type="text" 
                     placeholder="what are you looking for?" 
@@ -45,27 +77,33 @@ export default function Navbar() {
                 width={20}
                 alt='search'
             />
-            </div>
-            <Image
-                src={heartlogo}
-                height={25}
-                width={25}
-                alt='heart'
-            />
-
-            <div className={styles.cart}>
-                <span className={styles.badge}>2</span>
-            <Image
-                src={cartlogo}
-                height={25}
-                width={25}
-                className={styles.icons}
-                alt='cart'
-            />   
-            </div>
+        </div>
+        <span><Image src={heartlogo} alt='hearte'/></span>
+        <a href="/cart"><Image src={cartlogo} alt='cart'/></a>
       </div>
-
-
-    </nav>
+    </header>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

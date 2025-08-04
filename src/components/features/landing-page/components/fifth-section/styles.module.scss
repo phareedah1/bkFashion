@@ -1,11 +1,38 @@
 .cont{
     background-color: black;
-    height: 43rem;
-    display: flex;
-    justify-content: center;
+    height: 45rem;
+    flex-direction: column;
+    padding: 40px;
 
     .header{
+        display: flex;
+        justify-content: center;
         color: white;
         font-size: 40px;
     }
 }
+
+.img_cont{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 40px;
+}
+
+.img2{
+    display: flex;
+    position: relative;
+    top: 100px;
+}
+
+// .browse_cont{
+//     display: flex;
+//     justify-content: right;
+//     browse{
+//         width: 100px;
+//         height: 30px;
+//         color: white;
+//         background-color: orange;
+//         border-radius: 0 0 0 8px;
+//     }
+// }

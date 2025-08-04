@@ -1,0 +1,105 @@
+.container {
+//   padding: 2rem;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        font-size: 30px;
+    }
+}
+
+
+.reviewsGrid {
+    padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+.reviewCard {
+  background: #f7f7f7;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.google{
+    display: flex;
+    flex-direction: column;
+}
+
+.google_icon{
+    margin-left: 90px;
+}
+.text {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .avatar {
+    background: #6c63ff;
+    color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;  
+//   width: 100%;
+  background-color: #efefef;
+
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    align-items: center;
+  }
+}
+
+.serviceItem {
+  text-align: center;
+  flex: 1;
+  padding: 1rem;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #666;
+  }
+}

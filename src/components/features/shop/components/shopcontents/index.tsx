@@ -6,13 +6,22 @@ import list from '../../../../../../public/assets/images/shop/list.svg'
 import twocolumns from '../../../../../../public/assets/images/shop/2columns.svg'
 import threecolumns from '../../../../../../public/assets/images/shop/3columns.svg'
 import Image from "next/image";
-import ProductGrid from "./productgrid/productgrid";
+import ProductGrid from "./productgrid";
+import Pagination from "@/components/pagination";
 
 export default function ShopList() {
   const [sortOption, setSortOption] = useState('featured');
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortOption(e.target.value);
+  };
+
+    const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 105; // for example
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // fetch or display new data for that page here
   };
     return(
         <div className={styles.container}>
@@ -42,9 +51,19 @@ export default function ShopList() {
 
                 <div>
                   <ProductGrid/>
+                  <Pagination
+                      currentPage={2} 
+                      totalPages={6} 
+                      onPageChange={handlePageChange} 
+                  />
                 </div>
             </div>
 
         </div>
     );
 }
+
+
+
+  
+

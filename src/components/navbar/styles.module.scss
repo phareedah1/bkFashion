@@ -6,7 +6,6 @@
   padding: 1rem 5%;
   position: relative;
 }
-
 .left {
   display: flex;
   align-items: center;
@@ -79,7 +78,7 @@
   align-items: center;
 
   input {
-    padding: 0.3rem 0.6rem;
+    // padding: 0.3rem 0.6rem;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
@@ -93,6 +92,7 @@
   border: 1px solid grey;
   justify-content: flex-end;
   align-items: center;
+  padding: 5px;
 
   input{
     border: none;

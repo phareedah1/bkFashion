@@ -16,6 +16,7 @@ export default function FifthSection() {
                         alt='yo'
                         height={350}
                         width={280}
+                        className={styles.images}
                     />    
                 </div>
 
@@ -25,6 +26,7 @@ export default function FifthSection() {
                         alt='yo'
                         height={350}
                         width={280}
+                        className={styles.imagestwo}
                     />    
                 </div>
 
@@ -34,6 +36,7 @@ export default function FifthSection() {
                         alt='yo'
                         height={350}
                         width={280}
+                        className={styles.images}
                     />    
                 </div>
 
@@ -43,6 +46,7 @@ export default function FifthSection() {
                         alt='yo'
                         height={350}
                         width={280}
+                        className={styles.imagestwo}
                     />    
                 </div>
             </div>

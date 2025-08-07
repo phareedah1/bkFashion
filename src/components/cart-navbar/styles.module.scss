@@ -1,0 +1,153 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem 5%;
+  position: relative;
+  
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 120px;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  display: none; 
+  cursor: pointer;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.menu {
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      li {
+        padding: 0.3rem 0.6rem;
+        cursor: pointer;
+        &:hover {
+          background: #f5f5f5;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  input {
+    // padding: 0.3rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.searchbar{
+      background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 25px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+
+    .searchInput{
+      background-color: #f5f5f5;
+      border: none;
+      width: 80%;
+      height: 20px;
+
+      &:focus{
+        outline: none;
+        border: none;
+      }
+
+    }
+  }
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; 
+  }
+
+  .menu {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    background: white;
+    width: 100%;
+    flex-direction: column;
+    display: none; 
+    padding: 1rem;
+
+    ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .menu.open {
+    display: flex; 
+  }
+
+  .actions {
+    input {
+      display: none; 
+    }
+  }
+
+  .searchbar{
+  display: flex;
+  flex-direction: row;
+  width: 80px;
+  height: 40px;
+  border: 1px solid grey;
+  justify-content: flex-end;
+  align-items: center;
+}
+}
+
+

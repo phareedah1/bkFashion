@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 import SectionSix from './components/sixth-section'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import ThirdSection from './components/third-section'
 
 export default function LandingPage() {
     return(
@@ -14,6 +15,7 @@ export default function LandingPage() {
             <Navbar/>
             <Firstsection />
             <Sectiontwo/>
+            <ThirdSection/>
             <FourthSection/>
             <FifthSection/>
             <SectionSix/>

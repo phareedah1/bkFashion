@@ -33,6 +33,7 @@ export default function ReviewsSection() {
                     <Image
                         src={stars}
                         alt='lo'
+                        className={styles.stars}
                     />
                 <Image
                     src={google}

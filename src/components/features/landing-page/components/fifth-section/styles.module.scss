@@ -17,12 +17,36 @@
     flex-direction: row;
     width: 100%;
     gap: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 .img2{
     display: flex;
     position: relative;
     top: 100px;
+}
+
+
+ @media (max-width: 768px) {
+
+    .cont{
+        height: 25rem;
+        padding: 20px;
+    }
+
+    .img_cont{
+        gap: 10px;
+    }
+    .images{
+        width: 80px;
+        height: 150px;
+    }
+
+    .imagestwo{
+        width: 80px;
+        height: 150px;
+    }
 }
 
 // .browse_cont{

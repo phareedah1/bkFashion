@@ -1,0 +1,132 @@
+
+
+.container{
+  background-color: #33160A;
+}
+
+.background{
+    background-image: url('../../../public//assets//images/shopping/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        width: 55%;
+        text-align: center;
+
+        button{
+            width: 300px;
+            height: 60px;
+            color: white;
+            background-color: #db5825;
+            border: none;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        p{
+            font-size: 50px;
+        }
+    }
+}
+
+
+
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #33160A;
+  color: #fff;
+  padding: 3rem 5%;
+  flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+/* Left Section */
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .logo {
+    width: 150px;
+  }
+
+  .socialIcons {
+    width: 120px;
+  }
+}
+
+/* Middle Section */
+.address {
+  max-width: 250px;
+  line-height: 1.6;
+
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Right Section */
+.newsletter {
+  max-width: 300px;
+
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .inputGroup {
+    display: flex;
+    margin-top: 0.5rem;
+
+    input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    button {
+      background: #ff4d00;
+      color: white;
+      border: none;
+      padding: 0 1rem;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+  }
+}
+
+/* ✅ Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+
+    input {
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      border-radius: 4px;
+      width: 100%;
+    }
+  }
+}

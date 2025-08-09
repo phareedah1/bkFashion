@@ -3,151 +3,158 @@
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 1rem 5%;
+  padding: 0.8rem 5%;
   position: relative;
-  
-}
-.left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 
-.logo {
-  width: 120px;
-}
-
-.hamburger {
-  background: none;
-  border: none;
-  display: none; 
-  cursor: pointer;
-
-  img {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-.menu {
-  ul {
+  .left,
+  .right {
     display: flex;
-    gap: 2rem;
-    list-style: none;
+    align-items: center;
+    gap: 1rem;
   }
 
-  li {
-    position: relative;
+  .logo {
+    width: 110px;
+    height: auto;
+  }
 
-    button {
-      background: none;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
+  .hamburger {
+    background: none;
+    border: none;
+    display: none;
+    cursor: pointer;
+
+    img {
+      width: 26px;
+      height: 26px;
     }
+  }
 
-    .dropdown {
-      position: absolute;
-      top: 2rem;
-      left: 0;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem;
+  .menu {
+    ul {
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      gap: 2rem;
+      list-style: none;
 
       li {
-        padding: 0.3rem 0.6rem;
-        cursor: pointer;
-        &:hover {
-          background: #f5f5f5;
+        position: relative;
+
+        /* Style both button and link to look the same */
+        a,
+        button {
+          all: unset; /* Remove default styles */
+          cursor: pointer;
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: #333;
+          padding: 0.25rem 0;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #d4a017;
+          }
+
+          img {
+            width: 10px;
+            height: 10px;
+          }
         }
       }
     }
   }
-}
-
-.actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-
-  input {
-    // padding: 0.3rem 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-}
-
-.searchbar{
-      background-color: #f5f5f5;
-    display: flex;
-    flex-direction: row;
-    width: 200px;
-    height: 25px;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px;
-
-    .searchInput{
-      background-color: #f5f5f5;
-      border: none;
-      width: 80%;
-      height: 20px;
-
-      &:focus{
-        outline: none;
-        border: none;
-      }
-
-    }
-  }
-@media (max-width: 768px) {
-  .hamburger {
-    display: block; 
-  }
-
-  .menu {
-    position: absolute;
-    top: 4rem;
-    left: 0;
-    background: white;
-    width: 100%;
-    flex-direction: column;
-    display: none; 
-    padding: 1rem;
-
-    ul {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  }
-
-  .menu.open {
-    display: flex; 
-  }
 
   .actions {
-    input {
-      display: none; 
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    .searchbar {
+      background-color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      width: 180px;
+      height: 32px;
+      padding: 0 8px;
+      border-radius: 4px;
+
+      .searchInput {
+        background-color: transparent;
+        border: none;
+        width: 80%;
+        font-size: 0.85rem;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    img {
+      width: 22px;
+      height: 22px;
     }
   }
-
-  .searchbar{
-  display: flex;
-  flex-direction: row;
-  width: 80px;
-  height: 40px;
-  border: 1px solid grey;
-  justify-content: flex-end;
-  align-items: center;
-}
 }
 
+/* MOBILE STYLING */
+@media (max-width: 768px) {
+  .navbar {
+    .hamburger {
+      display: block;
+    }
 
+    /* Hide menu inline, show below */
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 1rem;
+
+      ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    .menu.open {
+      display: flex;
+    }
+
+    /* Search + icons smaller */
+    .actions {
+      gap: 0.5rem;
+
+      .searchbar {
+        width: 120px;
+        height: 28px;
+        padding: 0 6px;
+
+        .searchInput {
+          font-size: 0.75rem;
+        }
+
+        img {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

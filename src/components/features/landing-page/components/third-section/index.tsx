@@ -7,28 +7,29 @@ export default function ThirdSection(){
     return(
         <div className={styles.container}>
             <div className={styles.shoe_cont}>
-                {/* <Image
-                    src={shoe}
-                    alt='shoe'
-                    className={styles.shoe}
-                /> */}
+                <div className={styles.txt_cont}>
+                    <p className={styles.line1}>Foot wears</p>
+                    <p className={styles.line2}>Slide into comfort and style, the perfect choice laid back luxury on any day</p>
+                    <p className={styles.line3}>Explore collection</p>
+                </div>
             </div>
 
 
             <div className={styles.perf_bag_cont}>
                 <div className={styles.perfume_cont}>
-                    {/* <Image
-                        src={perfume}
-                        alt='shoe'
-                        className={styles.perfume}
-                    /> */}
+                    <div className={styles.txt_cont}>
+                        <p className={styles.line1}>Perfumes</p>
+                        <p className={styles.line2}>Elevate your presence with perfumes designed to leave a lasting impression.</p>
+                        <p className={styles.line3}>Explore collection</p>
+                    </div>
                 </div>
+
                 <div className={styles.bag_cont}>
-                    {/* <Image
-                        src={redbag}
-                        alt='bag'
-                        className={styles.bag}
-                    /> */}
+                    <div className={styles.txt_cont}>
+                    <p className={styles.line1}>Bags</p>
+                    <p className={styles.line2}>Where style meets personality- explore our curated collection of a must have bags.</p>
+                    <p className={styles.line3}>Explore collection</p>
+                    </div>
                 </div>
             </div>
         </div>

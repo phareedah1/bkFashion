@@ -30,24 +30,40 @@ export default function CartNavbar() {
     <header className={styles.navbar}>
       {/* Left: Hamburger + Logo */}
       <div className={styles.left}>
-        <button className={styles.hamburger} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className={styles.hamburger}
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
           <Image src={menuIcon} alt="menu" />
         </button>
         <Image src={logo} alt="logo" className={styles.logo} />
       </div>
 
       {/* Desktop Menu */}
-      <nav className={`${styles.menu} ${mobileOpen ? styles.open : ''}`}>
+      <nav
+        className={`${styles.menu} ${mobileOpen ? styles.open : ''}`}
+      >
         <ul>
           {menuItems.map((item, i) => (
             <li key={i}>
               {item.submenu ? (
                 <button onClick={() => toggleMenu(item.title)}>
                   {item.title}
-                  <Image src={arrowDown} alt="arrow" className={styles.arrow} />
+                  {/* <Image
+                    src={arrowDown}
+                    alt="arrow"
+                    className={styles.arrow}
+                  /> */}
                 </button>
               ) : (
-                <a href={item.link}>{item.title}</a>
+                <a href={item.link}>
+                  {item.title}
+                  {/* <Image
+                    src={arrowDown}
+                    alt="arrow"
+                    className={styles.arrow}
+                  /> */}
+                </a>
               )}
 
               {item.submenu && activeMenu === item.title && (
@@ -65,24 +81,29 @@ export default function CartNavbar() {
       {/* Right: Search, Heart, Cart */}
       <div className={styles.actions}>
         <div className={styles.searchbar}>
-                <input 
-                    type="text" 
-                    placeholder="what are you looking for?" 
-                    className={styles.searchInput} 
-                />
-            <Image
-                src={searchlogo}
-                height={20}
-                width={20}
-                alt='search'
-            />
+          <input
+            type="text"
+            placeholder="what are you looking for?"
+            className={styles.searchInput}
+          />
+          <Image
+            src={searchlogo}
+            height={20}
+            width={20}
+            alt="search"
+          />
         </div>
-        <span><Image src={heartlogo} alt='hearte'/></span>
-        <a href="/cart"><Image src={cartlogo} alt='cart'/></a>
+        <span>
+          <Image src={heartlogo} alt="heart" />
+        </span>
+        <a href="/cart">
+          <Image src={cartlogo} alt="cart" />
+        </a>
       </div>
     </header>
   );
 }
+
 
 
 

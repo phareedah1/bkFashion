@@ -7,7 +7,7 @@ export default function CartFooter() {
         <div className={styles.container}>
             <div className={styles.background}>
                 <div className={styles.content}>
-                    <h4>Limited offers</h4>
+                    <p>Limited offers</p>
                     <p>Join our style squad- Get 10% off your first order!</p>
                     <button>Shop our products</button>
                 </div>

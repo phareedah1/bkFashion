@@ -48,7 +48,7 @@ export default function CheckOut() {
               <p>Sub total <span>₦203,000</span></p>
               <p>Shipping fee <span>₦2000</span></p>
               <p><strong>Total</strong> <strong>₦205,000</strong></p>
-              <button className={styles.checkoutBtn}>Proceed to Checkout</button>
+              <Link href="/billing" className={styles.checkoutlink}><button className={styles.checkoutBtn}>Proceed to Checkout</button></Link>
           </div>
       </div>
 

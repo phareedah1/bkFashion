@@ -1,13 +1,13 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-type Product ={
-    id:number;
-    name : string;
-    price: number;
-    oldPrice : number;
-    image: string;
-    category:string;
-
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  oldPrice: number;
+  image: string;
+  category: string;
 };
 
 type CartState = {
@@ -17,11 +17,16 @@ type CartState = {
   clearCart: () => void;
 };
 
-export const useCartStore = create<CartState>((set) => ({
-  cart: [],
-  AddToCart: (product) =>
-    set((state) => ({ cart: [...state.cart, product] })),
-  removeFromCart: (id) =>
-    set((state) => ({ cart: state.cart.filter((p) => p.id !== id) })),
-  clearCart: () => set({ cart: [] }),
-}));
+export const useCartStore = create<CartState>()(
+  persist(
+    (set) => ({
+      cart: [],
+      AddToCart: (product) =>
+        set((state) => ({ cart: [...state.cart, product] })),
+      removeFromCart: (id) =>
+        set((state) => ({ cart: state.cart.filter((p) => p.id !== id) })),
+      clearCart: () => set({ cart: [] }),
+    }),
+    { name: "cart-storage" }
+  )
+);

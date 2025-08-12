@@ -1,0 +1,70 @@
+.container{
+  width: 50%;
+}
+.contact_input_div_cont{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+
+  .form_label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: #333;
+  }
+
+  .form_input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+}
+
+.ship_pickup_cont{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+     
+    div{
+        width: 150px;
+        height: 35px;
+        display: flex;
+        border-radius: 8px;
+        flex-direction: row;
+        justify-content: flex-end;
+        border: 1px solid red;
+    }
+}
+
+  .form_input2 {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+
+  .delivery_deets_input2{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .save_input{
+    display: flex;
+    flex-direction: row;
+  }

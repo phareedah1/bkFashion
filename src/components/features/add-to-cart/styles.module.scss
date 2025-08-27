@@ -1,22 +1,12 @@
-.img{
-    border-radius: 20px;
-}
-
-.product_details_header{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    gap: 15px;
-    p{
-        font-size: 30px;
-    }
-}
-
 .additional_info_div{
     display: flex;
     flex-direction: row;
     gap: 100px;
+
+    .image_div{
+      display: flex;
+      flex-direction: column;
+    }
 
     button{
 
@@ -80,3 +70,77 @@
         }
     }
 }
+
+
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.thumb {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.review_rating_section {
+  display: flex;
+  gap: 50px;
+  margin: 50px 0;
+}
+
+.reviews {
+  flex: 1;
+}
+
+.review {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ratings {
+  flex: 1;
+}
+
+.rating_row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.bar {
+  flex: 1;
+  height: 8px;
+  background: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: orange;
+}
+
+.similar_products {
+  margin-top: 50px;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  .similar_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+  @media (max-width: 768px) {
+    .additional_info_div{
+      flex-direction: column;
+    }
+  }

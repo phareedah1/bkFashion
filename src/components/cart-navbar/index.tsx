@@ -94,7 +94,7 @@ export default function CartNavbar() {
           />
         </div>
         <span>
-          <Image src={heartlogo} alt="heart" />
+          <Link href="/wishlist"><Image src={heartlogo} alt="heart" /></Link>
         </span>
         <a href="/cart">
           <Image src={cartlogo} alt="cart" />

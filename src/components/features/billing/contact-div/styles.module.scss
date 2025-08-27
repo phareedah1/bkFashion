@@ -1,9 +1,11 @@
 .container{
   width: 50%;
+  padding: 20px;
 }
 .contact_input_div_cont{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    gap: 10px;
 }
 
 .form_group {
@@ -42,8 +44,21 @@
         display: flex;
         border-radius: 8px;
         flex-direction: row;
-        justify-content: flex-end;
-        border: 1px solid red;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    .car{
+      border: none;
+      background-color: #F5F5F5;
+      color: grey;
+    }
+
+    .shop{
+      border: 1px solid #DF845F;
+      background-color: #F2D2C5;
     }
 }
 
@@ -60,11 +75,25 @@
   }
 
   .delivery_deets_input2{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
   }
 
   .save_input{
     display: flex;
     flex-direction: row;
+  }
+
+    @media (max-width: 768px) {
+      .container{
+          width: 100%;
+      }
+      .contact_input_div_cont{
+          grid-template-columns: repeat(1,1fr);
+          gap: 10px;
+      }
+      .delivery_deets_input2{
+        grid-template-columns: repeat(1,1fr);
+      }
   }

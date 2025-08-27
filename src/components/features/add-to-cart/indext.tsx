@@ -7,32 +7,57 @@ import Back from '../back-button';
 import CartNavbar from '@/components/cart-navbar';
 import CartFooter from '@/components/cart-footer';
 import Quantity from '../quantity-button';
+import {products} from '../../shopping/components/data'
+import Similarprods from './components';
 
 export default function AddToCart() {
-  const { cart, removeFromCart, clearCart } = useCartStore();
+  const { cart } = useCartStore();
 
-  // if (cart.length === 0) {
-  //   return (
-  //     <div style={{ padding: '20px' }}>
-  //       <h2>Your Cart is Empty</h2>
-  //       <Link href="/">Go Back to Shop</Link>
-  //     </div>
-  //   );
-  // }
+  const boxes = Array.from({ length: 9 }, (_, i) => 36 + i);
 
-  const boxes = Array.from({length:9}, (_,i) => 36 + i)
+  // Hardcoded reviews
+  const reviews = [
+    { user: "John Doe", text: "This product is amazing! Totally worth it." },
+    { user: "Mary Jane", text: "Good quality, fast shipping." },
+    { user: "Luke Fox", text: "Nice one, would definitely recommend." },
+  ];
+
+  // Hardcoded ratings
+  const ratings = [
+    { stars: 5, count: 120 },
+    { stars: 4, count: 60 },
+    { stars: 3, count: 25 },
+    { stars: 2, count: 10 },
+    { stars: 1, count: 5 },
+  ];
+
+  // Similar products → only first 8
+  const similarProducts = useCartStore.getState().cart.slice(0, 8);
+
   return (
-    
     <div>
-      <CartNavbar/>
+      <CartNavbar />
       <div className={styles.product_details_header}>
-        <Back/>
+        <Back />
         <p>Product detail</p>
       </div>
+
       {cart.map((item) => (
         <div key={item.id} className={styles.additional_info_div}>
           <div className={styles.image_div}>
-            <Image src={item.image} alt={item.name} width={550} height={500} className={styles.img}/>
+            <Image src={item.image} alt={item.name} width={550} height={450} className={styles.img}/>
+            <div className={styles.thumbnails}>
+                {[item.image, item.image, item.image, item.image].map((thumb, i) => (
+                  <Image
+                    key={i}
+                    src={thumb}
+                    alt={`thumb-${i}`}
+                    width={100}
+                    height={100}
+                    className={styles.thumb}
+                  />
+                ))}
+            </div>
           </div>
           <div className={styles.image_info_div}>
             <p className={styles.image_name}>{item.name}</p>
@@ -61,13 +86,42 @@ export default function AddToCart() {
         </div>
       ))}
 
+      {/* REVIEWS + RATINGS */}
+      <div className={styles.review_rating_section}>
+        {/* Reviews */}
+        <div className={styles.reviews}>
+          <h3>Customer Reviews</h3>
+          {reviews.map((r, i) => (
+            <div key={i} className={styles.review}>
+              <strong>{r.user}</strong>
+              <p>{r.text}</p>
+            </div>
+          ))}
+        </div>
 
-      {/* <button onClick={clearCart} style={{ marginTop: '20px' }}>
-        Clear Cart
-      </button> */}
+        {/* Ratings */}
+        <div className={styles.ratings}>
+          <h3>Ratings</h3>
+          {ratings.map((r, i) => (
+            <div key={i} className={styles.rating_row}>
+              <span>{r.stars} ⭐</span>
+              <div className={styles.bar}>
+                <div
+                  className={styles.fill}
+                  style={{
+                    width: `${(r.count / 120) * 100}%`,
+                  }}
+                />
+              </div>
+              <span>{r.count}</span> f k 
+            </div>
+          ))}
+        </div>
+      </div>
 
-
-      <CartFooter/>
+      {/* SIMILAR PRODUCTS */}
+      <Similarprods/>
+      <CartFooter />
     </div>
   );
 }

@@ -7,9 +7,11 @@ import heartlogo from '../../../public/assets/images/navbar/heartlogo.svg';
 import cartlogo from '../../../public/assets/images/navbar/cartlogo.svg';
 import menuIcon from '../../../public/assets/images/navbar/hamburger.svg';
 import arrowDown from '../../../public/assets/images/navbar/arrow up.svg';
-import searchlogo from '../../../public/assets/images/navbar/searchlogo.svg';
-
+import SearchBox from '../features/search-box';
 import Image from 'next/image';
+import { useProductStore } from '../productStore';
+import CartLogo from '../features/cart-logo';
+
 
 const menuItems = [
   { title: "What's new", submenu: ["For Men", "For Women"] },
@@ -20,8 +22,10 @@ const menuItems = [
 ];
 
 export default function Navbar() {
+  const products = useProductStore((state) => state.products);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
 
   const toggleMenu = (menu: string) => {
     setActiveMenu(activeMenu === menu ? null : menu);
@@ -81,7 +85,7 @@ export default function Navbar() {
 
       {/* Right: Search, Heart, Cart */}
       <div className={styles.actions}>
-        <div className={styles.searchbar}>
+        {/* <div className={styles.searchbar}>
           <input
             type="text"
             placeholder="what are you looking for?"
@@ -93,13 +97,15 @@ export default function Navbar() {
             width={20}
             alt="search"
           />
-        </div>
+        </div> */}
+        <SearchBox
+          popular={['Casablanca', 'Bags', 'Bygahi', 'Sneakers', "L'Oréal Paris"]}
+          onSelect={(item) => console.log(item)}
+        />
         <span>
           <Image src={heartlogo} alt="heart" />
         </span>
-        <a href="/cart">
-          <Image src={cartlogo} alt="cart" />
-        </a>
+        <CartLogo/>
       </div>
     </header>
   );

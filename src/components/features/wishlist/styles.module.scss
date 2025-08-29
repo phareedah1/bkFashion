@@ -1,110 +1,360 @@
-.container {
-  padding: 20px;
-}
+// .container {
+//   padding: 20px;
+// }
 
-.title {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
+// .title {
+//   font-size: 24px;
+//   margin-bottom: 20px;
+// }
 
-.empty {
-  text-align: center;
-  font-size: 16px;
-  color: #666;
-}
+// .empty {
+//   text-align: center;
+//   font-size: 16px;
+//   color: #666;
+// }
+
+// .grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//   gap: 20px;
+// }
+
+// .card {
+//   background: #fff;
+//   border-radius: 10px;
+//   padding: 15px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+//   position: relative;
+// }
+
+// .imageWrapper {
+//   position: relative;
+//   width: 100%;
+//   height: auto;
+
+//   img {
+//     border-radius: 8px;
+//     object-fit: cover;
+//   }
+// }
+
+// .deleteIcon {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   cursor: pointer;
+//   width: 24px;
+//   height: 24px;
+
+//   &:hover {
+//     transform: scale(1.1);
+//   }
+// }
+
+// .details {
+//   margin-top: 10px;
+// }
+
+// .name {
+//   font-size: 16px;
+//   font-weight: 500;
+//   margin-bottom: 5px;
+// }
+
+// .priceWrapper {
+//   display: flex;
+//   gap: 10px;
+//   align-items: center;
+// }
+
+// .price {
+//   font-weight: bold;
+//   font-size: 18px;
+// }
+
+// .oldPrice {
+//   color: #aaa;
+//   text-decoration: line-through;
+//   font-size: 14px;
+// }
+
+// .clearButton {
+//   margin-top: 20px;
+//   padding: 10px 20px;
+//   border: none;
+//   background: #db5825;
+//   color: #fff;
+//   border-radius: 8px;
+//   cursor: pointer;
+
+//   &:hover {
+//     opacity: 0.9;
+//   }
+// }
+
+// /* Mobile responsiveness */
+// @media (max-width: 768px) {
+//   .title {
+//     font-size: 20px;
+//     text-align: center;
+//   }
+
+//   .grid {
+//     grid-template-columns: 1fr;
+//   }
+
+//   .card {
+//     width: 90%;
+//     margin: 0 auto;
+//   }
+// }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+  width: 100%;
+  padding: 20px;
+
 }
 
 .card {
   background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  position: relative;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  width: 100%; // makes card scale with grid
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 }
+
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: auto;
+  aspect-ratio: 3 / 4; // keeps images responsive & proportional
+  overflow: hidden;
 
   img {
-    border-radius: 8px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
 }
 
-.deleteIcon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
 
 .details {
-  margin-top: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 90%;
+  max-width: 95%;
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  color: black;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px; /* spacing between items */
+
+  font-size: 14px; /* normalize text size */
+  line-height: 1.4;
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  h3, p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* keeps text inside */
+  }
+
+  button, .addToCart {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+@media (max-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .details {
+    font-size: 13px;
+    gap: 6px;
+    
+
+
+      button{
+        width: 50%;
+        padding: 4px 11px;
+        font-size: 14px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+  }
+
+    .star{
+      width: 60px;
+      height: 10px;
+    }
+
+    .priceWrapper{
+      justify-content: center;
+
+      button{
+        width: 70px;
+        font-size: 10px;
+      }
+    }
+    .price{
+      font-size: 10px;
+    }
+
+    .oldPrice{
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: (2,1)fr; // single column on small phones
+    gap: 12px;
+  }
+
+  .details {
+    font-size: 12px;
+    padding: 6px;
+    gap: 4px;
+
+    button {
+      font-size: 12px;
+      padding: 5px 8px;
+    }
+  }
 }
 
 .name {
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .priceWrapper {
   display: flex;
-  gap: 10px;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+  color: black;
+
+  button {
+    background-color: #db5825;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+
+    @media (max-width: 768px) {
+      width: 85px;
+      height: 35px;
+      font-size: 12px;
+    }
+  }
 }
 
 .price {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
+  margin-right: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .oldPrice {
-  color: #aaa;
-  text-decoration: line-through;
+  color: #ddd;
   font-size: 14px;
+  text-decoration: line-through;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
-.clearButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background: #db5825;
-  color: #fff;
-  border-radius: 8px;
+/* Heart icon */
+.wishlistIcon {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
 
   &:hover {
-    opacity: 0.9;
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: 768px) {
+    top: 10px;
+    right: 10px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .title {
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    width: 90%;
-    margin: 0 auto;
-  }
-}

@@ -69,7 +69,7 @@ export default function ProductCard({
             <div>
               <span className={styles.price}>₦{price}</span>
               <span className={styles.oldPrice}>₦{oldPrice}</span>
-              <Image src={star} alt="rating" />
+              <Image src={star} alt="rating" className={styles.star}/>
             </div>
             <Link href="/cart">
               <div>

@@ -1,26 +1,108 @@
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  flex-wrap: wrap; // makes it wrap neatly on small screens
 }
 
-.word_filters{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+/* ===========================
+   Categories
+   =========================== */
+.word_filters {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.filter{
+/* Desktop categories (row) */
+.desktopCategories {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  p {
+    margin: 0;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+
+    &:hover {
+      color: #ff6600;
+    }
+  }
+}
+
+/* Mobile dropdown */
+.mobileCategories {
+  display: none;
+  position: relative;
+
+  button {
+    background: none;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
     display: flex;
-    width: 140px;
-    height: 48px;
-    background-color: #525150;
-    border-radius: 8px;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    color: white;
-    gap: 10px;
+    gap: 8px;
+    cursor: pointer;
+  }
 
+  .dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 160px;
+    background: white;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    z-index: 20;
+
+    p {
+      padding: 8px 12px;
+      margin: 0;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background: #f5f5f5;
+      }
+    }
+  }
+}
+
+/* ===========================
+   Filter button
+   =========================== */
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #525150;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  .desktopCategories {
+    display: none; // hide horizontal version
+  }
+
+  .mobileCategories {
+    display: block; // show dropdown
+  }
 }

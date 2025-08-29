@@ -8,6 +8,10 @@ import CartNavbar from '@/components/cart-navbar';
 import CartFooter from '@/components/cart-footer';
 import Quantity from '../quantity-button';
 import {products} from '../../shopping/components/data'
+import john from '../../../../public/assets/images/shopping/john.svg'
+import mary from '../../../../public/assets/images/shopping/mary.svg'
+import stars2 from '../../../../public/assets/images/cart/stars.svg'
+import stars from '../../../../public/assets/images/shopping/star.svg'
 import Similarprods from './components';
 
 export default function AddToCart() {
@@ -24,11 +28,11 @@ export default function AddToCart() {
 
   // Hardcoded ratings
   const ratings = [
-    { stars: 5, count: 120 },
-    { stars: 4, count: 60 },
-    { stars: 3, count: 25 },
-    { stars: 2, count: 10 },
-    { stars: 1, count: 5 },
+    { stars: 1, count: 45 },
+    { stars: 1, count: 3 },
+    { stars: 1, count: 1 },
+    { stars: 1, count: 0 },
+    { stars: 1, count: 0 },
   ];
 
   // Similar products → only first 8
@@ -93,8 +97,15 @@ export default function AddToCart() {
           <h3>Customer Reviews</h3>
           {reviews.map((r, i) => (
             <div key={i} className={styles.review}>
-              <strong>{r.user}</strong>
-              <p>{r.text}</p>
+              <div>
+                <Image src={john} alt="star" />
+              </div>
+
+              <div className={styles.info}>
+                <strong>{r.user}</strong>
+                <Image src={stars} alt='star'/>
+                <p>{r.text}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -102,9 +113,9 @@ export default function AddToCart() {
         {/* Ratings */}
         <div className={styles.ratings}>
           <h3>Ratings</h3>
+          <Image src={stars2} alt='stars'/>
           {ratings.map((r, i) => (
             <div key={i} className={styles.rating_row}>
-              <span>{r.stars} ⭐</span>
               <div className={styles.bar}>
                 <div
                   className={styles.fill}
@@ -113,7 +124,7 @@ export default function AddToCart() {
                   }}
                 />
               </div>
-              <span>{r.count}</span> f k 
+              <span>{r.count}</span>
             </div>
           ))}
         </div>

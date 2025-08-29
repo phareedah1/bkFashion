@@ -2,6 +2,7 @@
 import Pagination from "../pagination";
 import Filter from "./components/filter";
 import ProductGrids from "./components/productgrid";
+import styles from './styles.module.scss'
 import React from "react";
 import { useState } from "react";
 
@@ -19,6 +20,9 @@ export default function Shopping() {
   
     return(
         <div>
+          <div className={styles.backgroundimage}>
+            <p>Shopping page</p>
+          </div>
             <Filter/>
             <ProductGrids/>
             <Pagination

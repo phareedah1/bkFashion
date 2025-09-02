@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.scss';
-import searchlogo from '../../../public/assets/images/navbar/searchlogo.svg';
+import searchlogo from '../../../../public/assets/images/navbar/searchlogo.svg';
 import { useProductStore } from '../../productStore';
 
 type Product = {
@@ -60,9 +60,13 @@ export default function SearchBox({ popular, onSelect }: Props) {
           }}
           onFocus={() => setOpen(true)}
         />
-        <button className={styles.iconBtn} aria-label="Search">
-          <span>⌕</span>
-        </button>
+        <div aria-label="Search">
+          <Image
+            src={searchlogo}
+            alt='search'
+            className={styles.iconBtn} 
+          />
+        </div>
       </div>
 
       {open && (

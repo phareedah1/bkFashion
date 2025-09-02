@@ -21,15 +21,20 @@ export default function Shopping() {
     return(
         <div>
           <div className={styles.backgroundimage}>
-            <p>Shopping page</p>
+            <div className={styles.text}>
+              <p className={styles.text1}>Shopping Page</p>
+              <p className={styles.text2}>Discover our curated favourites, handpicked just for you</p>
+            </div>
           </div>
-            <Filter/>
+          <div className={styles.content}>
+           <Filter/>
             <ProductGrids/>
             <Pagination
                 currentPage={2} 
                 totalPages={6} 
                 onPageChange={handlePageChange} 
             />
+          </div>
         </div>
     );
 }

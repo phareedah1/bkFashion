@@ -3,6 +3,7 @@ import imageone from '../../../../../../public/assets/images/landing page/Frame 
 import imagetwo from '../../../../../../public/assets/images/landing page/heels.jpg'
 import imagethree from '../../../../../../public/assets/images/landing page/bag.jpg'
 import imagefour from '../../../../../../public/assets/images/landing page/bags.jpg'
+import arrow from '../../../../../../public/assets/images/landing page/arrow right.svg'
 import Image from 'next/image'
 
 export default function FifthSection() {
@@ -17,7 +18,7 @@ export default function FifthSection() {
                         height={350}
                         width={280}
                         className={styles.images}
-                    />    
+                    />   
                 </div>
 
                 <div className={styles.img2}>
@@ -51,9 +52,17 @@ export default function FifthSection() {
                 </div>
             </div>
 
-            {/* <div className={styles.browse_cont}>
-                <div className={styles.browse}><p>Browse Catelogue</p></div>
-            </div> */}
+            <div className={styles.browse_cont}>
+                <button className={styles.browse}>
+                    Browse Catelogue
+                    <Image 
+                    src={arrow}
+                    alt='arrow'
+                    height={20}
+                    width={20}
+                    />
+                </button>
+            </div>
         </div>
     );
 }

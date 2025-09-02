@@ -5,6 +5,7 @@ import Back from "@/components/features/back-button";
 import styles from "./styles.module.scss";
 import filter from "../../../../../public/assets/images/shopping/filter.svg";
 import arrowdown from "../../../../../public/assets/images/shopping/arrowdown.svg";
+import ad from "../../../../../public/assets/images/shopping/ad.svg";
 import Image from "next/image";
 
 export default function Filter() {
@@ -29,7 +30,7 @@ export default function Filter() {
         <div className={styles.mobileCategories}>
           <button onClick={() => setOpen(!open)}>
             All
-            <Image src={arrowdown} alt="dropdown" width={15} height={15} />
+            <Image src={ad} alt="dropdown" width={15} height={15} />
           </button>
           {open && (
             <div className={styles.dropdown}>

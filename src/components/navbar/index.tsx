@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import logo from '../../../public/assets/images/navbar/sbk-logo.svg';
 import heartlogo from '../../../public/assets/images/navbar/heartlogo.svg';
 import cartlogo from '../../../public/assets/images/navbar/cartlogo.svg';
+import searchlogo from '../../../public/assets/images/navbar/searchlogo.svg'
 import menuIcon from '../../../public/assets/images/navbar/hamburger.svg';
 import arrowDown from '../../../public/assets/images/navbar/arrow up.svg';
 import SearchBox from '../features/search-box';
@@ -31,6 +32,7 @@ export default function Navbar() {
     setActiveMenu(activeMenu === menu ? null : menu);
   };
 
+  const [searchOpen, setSearchOpen] =useState(false);
   return (
     <header className={styles.navbar}>
       {/* Left: Hamburger + Logo */}
@@ -102,11 +104,35 @@ export default function Navbar() {
           popular={['Casablanca', 'Bags', 'Bygahi', 'Sneakers', "L'Oréal Paris"]}
           onSelect={(item) => console.log(item)}
         />
+
+        <button className={styles.searchToggle} onClick={() => setSearchOpen(true)}>
+          <Image src={searchlogo} height={22} width={22} alt="search" />
+        </button>
         <span>
           <Image src={heartlogo} alt="heart" />
         </span>
         <CartLogo/>
       </div>
+
+      {searchOpen && (
+        <div className={styles.searchOverlay}>
+          <div className={styles.searchHeader}>
+            <button className={styles.hamburger}>
+              <Image src={menuIcon} alt="menu" />
+            </button>
+            <Image src={logo} alt="logo" className={styles.logoSmall} />
+            <button className={styles.closeBtn} onClick={() => setSearchOpen(false)}>
+              ✕
+            </button>
+          </div>
+          <div className={styles.searchBox}>
+            <input type="text" placeholder="What are you looking for?" />
+            <button>
+              <Image src={searchlogo} alt="go" />
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

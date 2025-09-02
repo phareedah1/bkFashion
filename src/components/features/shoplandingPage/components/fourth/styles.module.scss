@@ -1,0 +1,75 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 150px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.button{
+    width: auto;
+    height: 70px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.description{
+    width: 70%;
+    button{
+        width: auto;
+        height: 40px;
+        border: none;
+        color: white;
+        padding: 10px;
+        background-color: #db5825;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+}
+
+.background{
+    background-image: url('../../../../../../public/assets/images/shop-landing/slides.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 1 1 48%;
+    height: 40rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.background1{
+    height: 40rem;
+    width: 90%;
+    background-image: url('../../../../../../public/assets/images/shop-landing/perfumes.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 1 1 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.background2{
+    height: 40rem;
+    width: 90%;
+    background-image: url('../../../../../../public/assets/images/shop-landing/bags.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 1 1 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

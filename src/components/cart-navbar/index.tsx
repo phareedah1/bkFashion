@@ -1,15 +1,19 @@
+
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 import logo from '../../../public/assets/images/landing page/logo2.svg'
-import heartlogo from '../../../public/assets/images/navbar/heartlogo.svg'
-import cartlogo from '../../../public/assets/images/navbar/cartlogo.svg'
-import menuIcon from '../../../public/assets/images/navbar/hamburger.svg'
-import arrowDown from '../../../public/assets/images/navbar/arrow up.svg'
+import heartlogo from '../../../public/assets/images/navbar/heartlogo.svg';
+import cartlogo from '../../../public/assets/images/navbar/cartlogo.svg';
 import searchlogo from '../../../public/assets/images/navbar/searchlogo.svg'
-
+import menuIcon from '../../../public/assets/images/navbar/hamburger.svg';
+import arrowDown from '../../../public/assets/images/navbar/arrow up.svg';
+import SearchBox from '../features/search-box';
 import Image from 'next/image';
+import { useProductStore } from '../productStore';
+import CartLogo from '../features/cart-logo';
+
 
 const menuItems = [
   { title: "Home", link: "/" },
@@ -18,14 +22,17 @@ const menuItems = [
   { title: "Contact us", link: "/shop" },
 ];
 
-export default function CartNavbar() {
+export default function Navbar() {
+  const products = useProductStore((state) => state.products);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
 
   const toggleMenu = (menu: string) => {
     setActiveMenu(activeMenu === menu ? null : menu);
   };
 
+  const [searchOpen, setSearchOpen] =useState(false);
   return (
     <header className={styles.navbar}>
       {/* Left: Hamburger + Logo */}
@@ -49,20 +56,10 @@ export default function CartNavbar() {
               {item.submenu ? (
                 <button onClick={() => toggleMenu(item.title)}>
                   {item.title}
-                  {/* <Image
-                    src={arrowDown}
-                    alt="arrow"
-                    className={styles.arrow}
-                  /> */}
                 </button>
               ) : (
                 <a href={item.link}>
                   {item.title}
-                  {/* <Image
-                    src={arrowDown}
-                    alt="arrow"
-                    className={styles.arrow}
-                  /> */}
                 </a>
               )}
 
@@ -80,7 +77,7 @@ export default function CartNavbar() {
 
       {/* Right: Search, Heart, Cart */}
       <div className={styles.actions}>
-        <div className={styles.searchbar}>
+        {/* <div className={styles.searchbar}>
           <input
             type="text"
             placeholder="what are you looking for?"
@@ -92,17 +89,44 @@ export default function CartNavbar() {
             width={20}
             alt="search"
           />
-        </div>
+        </div> */}
+        <SearchBox
+          popular={['Casablanca', 'Bags', 'Bygahi', 'Sneakers', "L'Oréal Paris"]}
+          onSelect={(item) => console.log(item)}
+        />
+
+        <button className={styles.searchToggle} onClick={() => setSearchOpen(true)}>
+          <Image src={searchlogo} height={22} width={22} alt="search" />
+        </button>
         <span>
-          <Link href="/wishlist"><Image src={heartlogo} alt="heart" /></Link>
+          <Image src={heartlogo} alt="heart" />
         </span>
-        <a href="/cart">
-          <Image src={cartlogo} alt="cart" />
-        </a>
+        <CartLogo/>
       </div>
+
+      {searchOpen && (
+        <div className={styles.searchOverlay}>
+          <div className={styles.searchHeader}>
+            <button className={styles.hamburger}>
+              <Image src={menuIcon} alt="menu" />
+            </button>
+            <Image src={logo} alt="logo" className={styles.logoSmall} />
+            <button className={styles.closeBtn} onClick={() => setSearchOpen(false)}>
+              ✕
+            </button>
+          </div>
+          <div className={styles.searchBox}>
+            <input type="text" placeholder="What are you looking for?" />
+            <button>
+              <Image src={searchlogo} alt="go" />
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
+
 
 
 

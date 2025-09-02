@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    p{
+        font-size: 60px;
+        font-weight: 600;
+    }
+}
+
+.img_cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .image{
+        width: 92%;
+        border-radius: 10px;
+        height: 30rem;
+    }
+}

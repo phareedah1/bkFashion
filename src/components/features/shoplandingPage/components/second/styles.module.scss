@@ -1,0 +1,19 @@
+.slides{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #aaa transparent;
+}
+
+.slides img{
+    flex: 0 0 auto;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    scroll-snap-align: start;
+    border-radius: 8px;
+}
+

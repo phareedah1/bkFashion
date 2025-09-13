@@ -1,13 +1,13 @@
-.line1{
+.line1 {
   font-size: 40px;
   color: white;
   font-weight: 400;
-    line-height: 1.4;
+  line-height: 1.4;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.line2{
+.line2 {
   font-size: 20px;
   color: white;
   line-height: 1.4;
@@ -15,7 +15,7 @@
   margin-bottom: 0;
 }
 
-.line3{
+.line3 {
   font-size: 28px;
   color: orangered;
   line-height: 1.4;
@@ -24,21 +24,13 @@
   text-align: left;
 }
 
-.txt_cont{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  text-align: left;
-  width: 80%;
-}
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 50px;
   justify-content: center;
-  align-items: stretch; /* Make both columns same height */
+  align-items: stretch;
   gap: 20px;
 
   .shoe_cont {
@@ -46,7 +38,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    flex: 1 1 48%;
+    flex: 1 1 47%;
     min-height: 60rem;
     display: flex;
     justify-content: center;
@@ -66,7 +58,7 @@
       background-repeat: no-repeat;
       background-position: center;
       flex: 1;
-      min-height: 29rem; /* each half the left column height minus gap */
+      min-height: 29rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -83,32 +75,102 @@
   }
 }
 
-/* Mobile View: Stack everything vertically */
-@media (max-width: 768px) {
+.txt_cont {
+  position: relative;
+  padding: 20px;
+  width: 85%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
 
-  .line1{
+.txt_cont2 {
+  position: relative;
+  padding: 20px;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+/* top-left corner */
+.txt_cont2::before,
+.txt_cont::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+
+/* top-right corner */
+.txt_cont2::after,
+.txt_cont::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+}
+
+/* bottom-left corner (span) */
+.cornerBl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+/* bottom-right corner (span) */
+.cornerBr {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .line1 {
     font-size: 20px;
     color: white;
     font-weight: 400;
   }
 
-  .line2{
+  .line2 {
     font-size: 12px;
     color: white;
   }
 
-  .line3{
+  .line3 {
     font-size: 14px;
     color: orangered;
   }
 
-  .txt_cont{
+  .txt_cont {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
   }
+
   .container {
     flex-direction: column;
     padding: 20px;

@@ -24,14 +24,17 @@
 }
 
 .card {
-  background: #fff; 
   padding: 20px;
   width: 280px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card h2 {
-  font-size: 24px;
+  font-size: 33px;
   font-weight: 600;
   color: #222;
   margin-bottom: 5px;
@@ -39,25 +42,113 @@
 }
 
 .line {
-  width: 60%;
+  width: 70%;
   height: 2px;
-  background: #c4c4c4;
+  background: #752f14;
   margin: 5px 0 10px;
 }
 
 .card p {
-  color: #c45a5a;
+  color: #db5825;
   font-weight: 500;
+  font-size: 20px;
 }
 
-.icon {
-  background: #c45a5a;
-  color: #fff;
-  padding: 6px 8px;
-  border-radius: 2px;
+
+
+.slideshow_cont {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth; // nice scrolling
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.slideshow_cont::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+.wrapper {
+  position: relative;
+  // display: flex;
+  // flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrowLeft,
+.arrowRight {
   position: absolute;
-  right: 10px;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
+  background: #db5825; /* your brand orange */
+  color: white;
+  border: none;
+  padding: 12px 16px;
   cursor: pointer;
+  z-index: 10;
+  width: 5px;
+  height: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.arrowLeft {
+  right: 1370px;
+}
+
+.arrowRight {
+  right: 400px;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  background: #752f14; /* darker on hover */
+}
+
+.cont{
+  display: flex;
+  flex-direction: row;
+  margin-top: 70px;
+}
+
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  gap: 2px; 
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #222; 
+}
+
+.priceRow {
+  display: flex;
+  gap: 10px; 
+  align-items: baseline; 
+}
+
+.currentPrice {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000; 
+}
+
+.oldPrice {
+  font-size: 1rem;
+  color: #888; /* faded grey */
+  text-decoration:line-through;
 }

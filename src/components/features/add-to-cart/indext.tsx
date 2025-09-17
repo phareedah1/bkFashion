@@ -4,12 +4,9 @@ import { useCartStore } from '@/store/cartStore';
 import Image from 'next/image';
 import Link from 'next/link';
 import Back from '../back-button';
-import CartNavbar from '@/components/cart-navbar';
-import CartFooter from '@/components/cart-footer';
 import Quantity from '../quantity-button';
 import {products} from '../../shopping/components/data'
 import john from '../../../../public/assets/images/shopping/john.svg'
-import mary from '../../../../public/assets/images/shopping/mary.svg'
 import stars2 from '../../../../public/assets/images/cart/stars.svg'
 import stars from '../../../../public/assets/images/shopping/star.svg'
 import Similarprods from './components';
@@ -39,8 +36,7 @@ export default function AddToCart() {
   const similarProducts = useCartStore.getState().cart.slice(0, 8);
 
   return (
-    <div>
-      <CartNavbar />
+    <div className={styles.cont}>
       <div className={styles.product_details_header}>
         <Back />
         <p>Product detail</p>
@@ -132,7 +128,6 @@ export default function AddToCart() {
 
       {/* SIMILAR PRODUCTS */}
       <Similarprods/>
-      <CartFooter />
     </div>
   );
 }

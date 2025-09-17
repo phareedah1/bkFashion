@@ -7,8 +7,8 @@ export default function CartFooter() {
         <div className={styles.container}>
             <div className={styles.background}>
                 <div className={styles.content}>
-                    <p>Limited offers</p>
-                    <p>Join our style squad- Get 10% off your first order!</p>
+                    <p className={styles.limited}>Limited offers</p>
+                    <p className={styles.txt}>Join Our Style Squad- Get 10% <br/>Off Your First Order!</p>
                     <button>Shop our products</button>
                 </div>
             </div>
@@ -34,6 +34,10 @@ export default function CartFooter() {
                         <button>Subscribe</button>
                     </div>
                 </div>
+                </div>
+
+                <div className={styles.Copyright}>
+                    <p>© Copyright SBK Fashion 2025, All Rights Reserved. | FAQ | Terms & Condition | Privacy Policy</p>
                 </div>
         </div>
     );

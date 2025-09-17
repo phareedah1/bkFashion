@@ -1,14 +1,11 @@
 
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
 import styles from './styles.module.scss';
 import logo from '../../../public/assets/images/landing page/logo2.svg'
 import heartlogo from '../../../public/assets/images/navbar/heartlogo.svg';
-import cartlogo from '../../../public/assets/images/navbar/cartlogo.svg';
 import searchlogo from '../../../public/assets/images/navbar/searchlogo.svg'
 import menuIcon from '../../../public/assets/images/navbar/hamburger.svg';
-import arrowDown from '../../../public/assets/images/navbar/arrow up.svg';
 import SearchBox from '../features/search-box';
 import Image from 'next/image';
 import { useProductStore } from '../productStore';

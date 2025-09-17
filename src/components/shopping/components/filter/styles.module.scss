@@ -14,12 +14,20 @@
   align-items: center;
   gap: 20px;
 }
-
+.all{
+  display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
 /* Desktop categories (row) */
 .desktopCategories {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  color: grey;
 
   p {
     margin: 0;
@@ -81,10 +89,10 @@
 .filter {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
   background-color: #525150;
   color: white;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
 
@@ -105,4 +113,8 @@
   .mobileCategories {
     display: block; // show dropdown
   }
+
+  .all{
+    display: none;
+}
 }

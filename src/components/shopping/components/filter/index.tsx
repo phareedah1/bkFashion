@@ -12,13 +12,17 @@ export default function Filter() {
   const [open, setOpen] = useState(false);
 
   const categories = [ "New Arrivals", "Best Selling", "Top Rating"];
-  const category = ["All", "New Arrivals", "Best Selling", "Top Rating"];
+  const category = ["New Arrivals", "Best Selling", "Top Rating"];
 
   return (
     <div className={styles.container}>
       {/* Categories */}
       <div className={styles.word_filters}>
         <Back/>
+        <button className={styles.all}>
+          <p>All</p>
+          <Image src={ad} alt="boo"/>
+        </button>
         {/* Desktop version */}
         <div className={styles.desktopCategories}>
           {category.map((cat, i) => (
